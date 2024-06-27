@@ -12,7 +12,7 @@ const PostCard = (props) => {
   : caption;
   
 
-  const trimmedHeading = heading.length > 13 ? heading.substring(0,30)   + "...": heading ;
+  const trimmedHeading = heading.length > 15 ? heading.substring(0,15)   + "...": heading ;
 
   return (
     <div className='card-container'>
