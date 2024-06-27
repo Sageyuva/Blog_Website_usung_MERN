@@ -1,0 +1,30 @@
+.card-container{
+    width: 300px;
+    border-radius: 0.6rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease;
+}
+.card-container:hover{
+    scale: 1.1;
+    background-color: white;
+    transition: 0.1s ease;
+}
+.user-name{
+    color: rgba(0, 0, 0, 0.352);
+    font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+    .card-container{
+        width: 300px;
+        flex-grow: inherit;
+        border-radius: 0.6rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+}

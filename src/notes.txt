@@ -1,0 +1,41 @@
+import React, { useState, useEffect } from 'react';
+
+const YourComponent = () => {
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const userIdToFilter = 'yuvad'; // specify the user id to filter by
+
+  useEffect(() => {
+    // Your API call or data fetching logic here
+    // For demonstration purposes, I'll use a mock data array
+    const fetchData = async () => {
+      // Fetch your data
+      const response = await fetch('your-api-endpoint');
+      const result = await response.json();
+      setData(result); // Set the fetched data to the state variable
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to run effect only once on mount
+
+  useEffect(() => {
+    // Filter the data based on the userIdToFilter
+    const filtered = data.filter(item => item.userid === userIdToFilter);
+    setFilteredData(filtered); // Set the filtered data to the state variable
+  }, [data, userIdToFilter]); // Include data and userIdToFilter in the dependency array
+
+  return (
+    <div>
+      {/* Render your filtered data here */}
+      {filteredData.map(item => (
+        <div key={item._id}>
+          <p>{item.heading}</p>
+          <p>{item.caption}</p>
+          {/* Render other properties as needed */}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default YourComponent;

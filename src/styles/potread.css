@@ -1,0 +1,45 @@
+.post-container{
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.post-card{
+    border-radius: 12px;
+    width: 95%;
+    height: 90vh;
+    scrollbar-width: none;
+    overflow: scroll;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 20px;
+}
+.Post-User{
+    display: flex;
+    font-size: larger;
+    color: rgba(0, 0, 0, 0.352);
+    font-weight: 600;
+}
+.Post-Heading{
+   color: #6636c2; 
+   font-weight: bolder;
+   font-size: xx-large;
+}
+.Post-Tag{
+    background-color: red;
+    width: fit-content;
+    padding: 3px 8px;
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+}
+.Post-Caption{
+    color: black;
+    font-weight: 500;
+    font-size:larger;
+}

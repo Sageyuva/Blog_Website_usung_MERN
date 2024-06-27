@@ -1,0 +1,140 @@
+.newpost-btn{
+    position: fixed;
+    bottom: 8%; 
+    right: 8%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 20px; 
+    background-color: #6636c2; 
+    color: white;
+    border: none; 
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer; 
+    z-index: 1000;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.newpost-btn:hover{
+    background-color: blueviolet;
+    scale: 1.1;
+
+}
+
+.navbar-container{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.646);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.list-container{
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+.listcontainerA{
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+.logo{
+    cursor: pointer;
+    color: #6636c2;
+    margin-left: 5%;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+.list-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    cursor: pointer;
+}
+.list-menuR{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgb(255, 63, 63);
+    padding: 5px;
+    font-size: 18px;
+    color:white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 500;
+}
+.login-btn{
+    background-color: blue;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+.menu{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+    .menu{
+        display: flex;
+        margin-right: 5%;
+        align-items: center;
+        justify-content: center;
+    }
+    .list-container{
+        padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: -120%;
+    height: calc(100vh - 60px);
+    width: 70%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.646);
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease;
+    font-size: 30px;
+    }
+    .listcontainerA{
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0%;
+        height: calc(100vh - 60px);
+        width: 70%;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.646);
+        align-items: flex-start;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s ease;
+        font-size: 30px;
+    }
+    .list-menu{
+        font-size: 20px;
+    }
+    .login-btn{
+        font-size: 20px;
+    }
+}

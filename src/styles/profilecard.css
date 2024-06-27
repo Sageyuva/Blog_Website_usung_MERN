@@ -1,0 +1,22 @@
+.pcard-container{
+  cursor: pointer;
+  width: 300px;
+  color: black;
+  border-radius: 0.6rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.3s ease;
+}
+.pcard-container:hover{
+  scale: 1.1;
+  background-color: #f4f4f4;
+}
+
+@media screen and (max-width: 800px) {
+  .pcard-container{
+    flex-grow: inherit;
+  }
+}
