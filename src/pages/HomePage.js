@@ -80,6 +80,16 @@ const HomePage = () => {
   useEffect(() => {
     fetchAllPosts();
     const loggedinUser = localStorage.getItem('user');
+    const expirationTime = localStorage.getItem('expirationTime');
+    if(loggedinUser && expirationTime && new Date().getTime() < expirationTime) {
+      navigate("/")
+    } else {
+      localStorage.removeItem('user'); // Clear localStorage if session expired
+      localStorage.removeItem('userid');
+      localStorage.removeItem('expirationTime');
+    }
+
+
   }, []);
 
   return (
