@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
-import {Backdrop , CircularProgress} from '@mui/material'
+import { Backdrop, CircularProgress } from '@mui/material'
 
 const LoginPage = () => {
-
-const [email, setemail] = useState("")
-const [password, setpassword] = useState("")
-const [loading, setloading] = useState(false)
+  const [email, setemail] = useState("")
+  const [password, setpassword] = useState("")
+  const [loading, setloading] = useState(false)
   const navigate = useNavigate()
-
 
   const LoginUser = async(e) => {
     e.preventDefault();
@@ -20,45 +18,43 @@ const [loading, setloading] = useState(false)
          console.log(loginuser.data.user.name)
          const loggingemail = loginuser.data.user._id
          const logginname = loginuser.data.user.name
-          localStorage.setItem('user' , logginname )
-          localStorage.setItem('userid' , loggingemail)
-          setloading(false)
+         const expirationTime = new Date().getTime() + 3 * 24 * 60 * 60 * 1000; // 3 days expiration
+         localStorage.setItem('user', logginname);
+         localStorage.setItem('userid', loggingemail);
+         localStorage.setItem('expirationTime', expirationTime); // Store expiration time
+         setloading(false)
          navigate("/") 
-      }else{
+      } else {
         alert("Server is offline")
         setloading(false)
       }
      
     } catch (error) {
-     
-      setloading(true)
-      if(error.code === "ERR_NETWORK"){
+      setloading(false)
+      if(error.code === "ERR_NETWORK") {
         alert("Server is offline")
         window.location.reload()
-      }else if(error.response.status === 402){
-        setloading(false)
+      } else if(error.response.status === 402) {
         alert("Invalid password try again")
-      }else if(error.response.status === 400){
-        setloading(false)
-         alert("user not found")
-      }
-      else{
-        setloading(false)
+      } else if(error.response.status === 400) {
+        alert("User not found")
+      } else {
         alert("Server error try again later")
       }
     }
-    
   }
 
   useEffect(() => {
-
     const loggedinUser = localStorage.getItem('user');
-    
-    if(loggedinUser){
-     navigate("/")
+    const expirationTime = localStorage.getItem('expirationTime');
+    if(loggedinUser && expirationTime && new Date().getTime() < expirationTime) {
+      navigate("/")
+    } else {
+      localStorage.removeItem('user'); // Clear localStorage if session expired
+      localStorage.removeItem('userid');
+      localStorage.removeItem('expirationTime');
     }
   }, [])
-
 
   return (
     <div className='w-[100%] h-[100vh] flex items-center justify-center rounded-md'>
